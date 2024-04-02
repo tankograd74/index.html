@@ -5,6 +5,36 @@
   <meta charset="UTF-8">
   <title>Купить бетон с доставкой в Челябинске</title>
   <style>
+    footer {
+      background-color: #000;
+      /* Чёрный фон */
+      color: white;
+      /* Белый текст */
+      padding: 10px 20px;
+      text-align: left;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .counter {
+      background-color: #FFD700;
+      /* Жёлтый фон для счётчика */
+      color: #000;
+      /* Чёрный текст */
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .counter p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+
     a {
       color: blue;
       /* Синий цвет текста ссылок */
@@ -200,7 +230,27 @@
   </div>
   <footer>
     <p>© 2024 УралБетонСнаб. Все права защищены.</p>
+    <div class="footer-content">
+      <p>© 2024 Продажа Бетона. Все права защищены.</p>
+      <div id="visitorCounter" class="counter">
+        <p>loads: <span id="totalVisits">0</span></p>
+      </div>
+    </div>
   </footer>
+  <script>
+    // Предполагаем, что каждый новый заход на страницу - это новое посещение.
+    // Для уникальных посетителей необходимо реализовать серверную логику.
+
+    // Проверяем localStorage на наличие счётчика посещений
+    if (localStorage.getItem('visits')) {
+      localStorage.setItem('visits', Number(localStorage.getItem('visits')) + 1);
+    } else {
+      localStorage.setItem('visits', 1);
+    }
+
+    // Отображаем общее количество посещений
+    document.getElementById('totalVisits').textContent = localStorage.getItem('visits');
+  </script>
 </body>
 
 </html>
